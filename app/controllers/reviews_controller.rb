@@ -15,12 +15,14 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
+    byebug
     @review = Review.new(review_params)
 
     if @review.save
       render json: @review, status: :created, location: @review
     else
-      render json: @review.errors, status: :unprocessable_entity
+      render json: {message: 'Didnt work'}
+      # render json: @review.errors, status: :unprocessable_entity
     end
   end
 
@@ -48,6 +50,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:comments, :smoothie_id)
+      params.require(:review).permit(:comment, :smoothie_id)
     end
 end
