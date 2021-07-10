@@ -1,0 +1,11 @@
+class ReviewService {
+    constructor(){
+        this.base_url = 'http://127.0.0.1:3000'
+    }
+ // index
+    getReviews(){
+     fetch(`${this.base_url}/reviews`).then(res => res.json()
+        )
+    }
+}
+
