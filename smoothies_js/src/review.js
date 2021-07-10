@@ -17,8 +17,6 @@ class Review {
         Review.all.push(this)
     }
 
-
-
     render() {
     const reviewsContainer = document.getElementById('reviewsContainer')
     reviewsContainer.innerHTML = 'my reviews'
@@ -26,7 +24,6 @@ class Review {
 
      
     reviewHTML(){
-        // debugger
         this.element.innerHTML += `
         <div>
             <h3>${this.comment}</h3>
@@ -47,6 +44,10 @@ class Review {
         <form>
         `
     }
+
+    // const review = Review.document.getElementById('new-review-form').innerHTML
+    
+    
     // static renderForm(){
     //     // debugger
     //     const review = document.getElementById('new-review-form').value
