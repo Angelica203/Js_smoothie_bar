@@ -12,6 +12,7 @@ class Review {
         this.element = document.createElement('li')
         this.element.dataset.id = this.id
         this.element.id = `review-${this.id}`
+        this.element.addEventListener('click', this.handleClick)
         // this.bindEventListeners()
 
         Review.all.push(this)
@@ -28,6 +29,9 @@ class Review {
         <div>
             <h3>${this.comment}</h3>
         </div>
+        <button id='delete-bttn'>Delete</button>
+        <br>
+        <br>
          `
         return this.element
     }
@@ -45,14 +49,11 @@ class Review {
         `
     }
 
-    // const review = Review.document.getElementById('new-review-form').innerHTML
-    
-    
-    // static renderForm(){
-    //     // debugger
-    //     const review = document.getElementById('new-review-form').value
-    //     // console.log(document.getElementById('new-review-form'))
-    //     // debugger;
-    // }
-    
+    handleClick = () => {
+        // debugger
+        if (event.target.innerText === 'Delete'){
+            this.element.remove()
+            reviewService.deleteReview(this.id)
+        }
+    }
 }

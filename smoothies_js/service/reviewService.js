@@ -11,7 +11,6 @@ class ReviewService {
             const r = new Review(review)
             r.loadOnDom()
         }
-        
      })
     }
 
@@ -20,7 +19,7 @@ class ReviewService {
             comment: document.getElementById('comment').value,
             smoothie_id: 1
         }
-        debugger
+        // debugger
         fetch(`${this.endpoint}/reviews`, {
             method: "POST",
             headers: {
@@ -28,13 +27,26 @@ class ReviewService {
                 "Accept": "application/json"
             },
             body: JSON.stringify(
-                reviews
+                review
             )
         })
         .then(resp => resp.json())
         .then(reviews => {
-debugger
+            const r = new Review(review)
+            r.loadOnDom()
         })
+    }
+
+    deleteReview(id){
+        // debugger;
+        fetch(`${this.endpoint}/reviews/${id}`,{
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(json => alert(json.message))
     }
 
 
