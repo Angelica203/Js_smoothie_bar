@@ -3,10 +3,11 @@ class ReviewService {
         this.endpoint = endpoint
     }
  // index
-    getReviews(){
-     fetch(`${this.endpoint}/reviews`)
-     .then(resp => resp.json())
-     .then(reviews => {
+    async getReviews(){
+    await smoothieService.getSmoothies()
+    await fetch(`${this.endpoint}/reviews`)
+    .then(resp => resp.json())
+    .then(reviews => {
         for (const review of reviews){
             const r = new Review(review)
             r.loadOnDom()
@@ -16,9 +17,9 @@ class ReviewService {
 
     createReview() {
         const review = {
-            comment: document.getElementById('comment').value,
-            smoothie_id: 1
-        }
+            comment: event.target.comment.value,
+            smoothie_id: parseInt(event.target.smoothie_id.value)
+            }
         // debugger
         fetch(`${this.endpoint}/reviews`, {
             method: "POST",

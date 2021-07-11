@@ -4,11 +4,14 @@ class SmoothieService {
     }
 
     //index
-    getSmoothies(){
-        fetch(`${this.endpoint}/smoothies`)
+    async getSmoothies(){
+        await fetch(`${this.endpoint}/smoothies`)
         .then(resp => resp.json())
-        .then(reviews => {
-            
+        .then(smoothies => {
+           for(const smoothie of smoothies){
+               const s = new Smoothie(smoothie)
+               s.loadOnDom()  
+           } 
         })
 
     }

@@ -1,8 +1,6 @@
 class Review {
     // remember obj
     static all = []
-    static reviewsContainer = document.getElementById("reviews-container")
-    static reviewForm = document.getElementById('new-review-form')
 
     //static filter =[]
     constructor({id, comment, smoothie_id}){
@@ -18,17 +16,16 @@ class Review {
         Review.all.push(this)
     }
 
-    render() {
-    const reviewsContainer = document.getElementById('reviewsContainer')
-    reviewsContainer.innerHTML = 'my reviews'
-    }  
+    // render() {
+    // const reviewsContainer = document.getElementById('reviews-container')
+    // reviewsContainer.append(this.reviewHTML())
+    // }  
 
      
     reviewHTML(){
+        // debugger
         this.element.innerHTML += `
-        <div>
-            <h3>${this.comment}</h3>
-        </div>
+        ${this.comment}
         <button id='delete-bttn'>Delete</button>
         <br>
         <br>
@@ -37,23 +34,17 @@ class Review {
     }
 
     loadOnDom(){
-        Review.reviewsContainer.appendChild(this.reviewHTML())
+        const revcont = document.getElementById(`smoothie-${this.smoothie_id}-reviews`).firstElementChild
+        revcont.appendChild(this.reviewHTML())
+    
     }
   
-    static renderForm(){
-        Review.reviewForm.innerHTML += `
-        <form if="new-review-form">
-            Comment: <input type="text" id="comment">
-            <input type="submit" id="create">
-        <form>
-        `
-    }
 
     handleClick = () => {
-        // debugger
         if (event.target.innerText === 'Delete'){
             this.element.remove()
             reviewService.deleteReview(this.id)
         }
     }
+
 }
