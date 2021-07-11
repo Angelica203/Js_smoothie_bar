@@ -10,7 +10,8 @@ class SmoothiesController < ApplicationController
 
   # GET /smoothies/1
   def show
-    render json: @smoothy
+    smoothie = Smoothie.find_by_id(params[:id])
+    render json: @smoothie
   end
 
   # POST /smoothies

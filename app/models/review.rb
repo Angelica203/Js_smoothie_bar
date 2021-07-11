@@ -1,3 +1,3 @@
 class Review < ApplicationRecord
-    belongs_to :smoothies
+    belongs_to :smoothie
 end

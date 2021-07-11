@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   # GET /reviews
   def index
     @reviews = Review.all
-
     render json: @reviews
   end
 
@@ -15,7 +14,7 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    byebug
+    # byebug
     @review = Review.new(review_params)
 
     if @review.save
@@ -38,8 +37,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   def destroy
     @review.destroy
-    # render json: {message: 'Comment' successfully deleted}
-
+    render json: {message: "successfully deleted"}
   end
 
   private
