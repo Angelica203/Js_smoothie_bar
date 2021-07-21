@@ -34,8 +34,9 @@ class Review {
     }
 
     loadOnDom(){
-        const revcont = document.getElementById(`smoothie-${this.smoothie_id}-reviews`).firstElementChild
-        revcont.appendChild(this.reviewHTML())
+        // debugger;
+        const revCont = document.getElementById(`smoothie-${this.smoothie_id}-reviews`).firstElementChild
+        revCont.appendChild(this.reviewHTML())
     
     }
   

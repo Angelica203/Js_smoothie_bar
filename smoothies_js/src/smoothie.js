@@ -2,7 +2,7 @@ class Smoothie{
     static all = []
     static smoothieContainer = document.getElementById('smoothies-container')
 
-    constructor({id, flavor, image}){
+    constructor({id, flavor, image, reviews}){
         this.id = id
         this.flavor = flavor
         this.image = image
@@ -10,8 +10,11 @@ class Smoothie{
         this.element.dataset.id = this.id
         this.element.id = `smoothie-${this.id}`
         this.element.addEventListener('submit', this.handleSubmit)
+        this.reviews = reviews.map(r =>{
 
-
+            const rObj = new Review(r)
+            return rObj
+        })
         Smoothie.all.push(this)
 
     }
@@ -36,10 +39,17 @@ class Smoothie{
         <br>
         `
         return this.element
+        // this.reviews  iterate rObj.loadOn dom, for each()
+        // return this.element
     }
 
     loadOnDom(){
         Smoothie.smoothieContainer.appendChild(this.smoothieHTML())
+        this.reviews.forEach(r => {
+            r.loadOnDom()
+
+        })
+
     }
     handleSubmit = () => {
         event.preventDefault()

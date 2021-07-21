@@ -9,3 +9,78 @@ class ReviewService {
     }
 }
 
+
+    constructor(){
+        // this.reviews = []
+        // this.service = new ReviewService()
+        // // this.bindEventListeners()
+        // this.fetchAndLoadReviews()
+
+
+fetch request, along with the .then promise and arrow functions,
+create form that renders data with .json also have a event listerner for submit and delete button
+delete form for every review(interperlation)
+(await tells the code to wait for the first fetch and proceed to the other.)
+grab ids and applying them to the dom
+
+
+        fetch(`${this.endpoint}/reviews`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+
+
+     getSmoothies(){
+         fetch(`${this.endpoint}/smoothies`)
+        .then(resp => resp.json())
+        .then(smoothies => {
+        for(const smoothie of smoothies){
+            const s = new Smoothie(smoothie)
+            s.loadOnDom()  
+        } 
+        })
+('https://ubahthebuilder.tech/posts/1');
+    }
+
+
+
+
+
+fetch('https://mommyblog.org/posts/1');
+
+fetch('https://mommabrantley.blog/post/55');   
+    .then(data => {
+    return data.json();
+    })
+    .then(post => {
+        console.log(post.title);
+    });
+
+
+
+    createContact(){
+        const contact = {
+            name: document.getElementById('name').value,
+            number: document.getElementById('number').value,
+            email: document.getElementById('email').value,
+            category_id: 1
+        }
+
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'            
+            },
+            body: JSON.stringify(contact)
+        }
+
+        fetch(`${this.endpoint}/contacts`, configObj)
+        .then(resp => resp.json())
+        .then(contact => {
+            const c = new Contact(contact)
+            c.slapOnDom()
+        })
+    }
+
+    body: JSON.stringify(post)

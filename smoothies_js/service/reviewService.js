@@ -4,7 +4,7 @@ class ReviewService {
     }
  // index
     async getReviews(){
-    await smoothieService.getSmoothies()
+    smoothieService.getSmoothies()
     await fetch(`${this.endpoint}/reviews`)
     .then(resp => resp.json())
     .then(reviews => {

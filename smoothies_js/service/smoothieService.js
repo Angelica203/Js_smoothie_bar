@@ -8,10 +8,10 @@ class SmoothieService {
         await fetch(`${this.endpoint}/smoothies`)
         .then(resp => resp.json())
         .then(smoothies => {
-           for(const smoothie of smoothies){
-               const s = new Smoothie(smoothie)
-               s.loadOnDom()  
-           } 
+        for(const smoothie of smoothies){
+            const s = new Smoothie(smoothie)
+            s.loadOnDom()  
+        } 
         })
 
     }
@@ -32,11 +32,14 @@ class SmoothieService {
             smoothiesContainer.innerHTML +=`
             <img src=${smoothies.image}/>
             <br>
-            <a id="backbttn" href="#">Back</a>
+            
             `
-            const backbttn =
-            document.getElementById('backbttn')
-                backbttn.addEventListener('click', back)
+            // const backbttn =
+            // document.getElementById('backbttn')
+            //     backbttn.addEventListener('click', back)
         })
     }
 }
+
+
+// <a id="backbttn" href="#">Back</a>
