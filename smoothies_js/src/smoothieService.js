@@ -32,7 +32,6 @@ class SmoothieService {
             smoothiesContainer.innerHTML +=`
             <img src=${smoothies.image}/>
             <br>
-            
             `
             // const backbttn =
             // document.getElementById('backbttn')
@@ -40,6 +39,3 @@ class SmoothieService {
         })
     }
 }
-
-
-// <a id="backbttn" href="#">Back</a>

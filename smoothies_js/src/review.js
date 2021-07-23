@@ -16,10 +16,10 @@ class Review {
         Review.all.push(this)
     }
 
-    // render() {
-    // const reviewsContainer = document.getElementById('reviews-container')
-    // reviewsContainer.append(this.reviewHTML())
-    // }  
+    render() {
+    const reviewsContainer = document.getElementById('reviews-container')
+    reviewsContainer.append(this.reviewHTML())
+    }  
 
      
     reviewHTML(){
@@ -34,9 +34,8 @@ class Review {
     }
 
     loadOnDom(){
-        // debugger;
-        const revCont = document.getElementById(`smoothie-${this.smoothie_id}-reviews`).firstElementChild
-        revCont.appendChild(this.reviewHTML())
+        const revcont = document.getElementById(`smoothie-${this.smoothie_id}-reviews`).firstElementChild
+        revcont.appendChild(this.reviewHTML())
     
     }
   
@@ -49,3 +48,5 @@ class Review {
     }
 
 }
+
+

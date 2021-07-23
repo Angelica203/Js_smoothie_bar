@@ -11,7 +11,7 @@ class Smoothie{
         this.element.id = `smoothie-${this.id}`
         this.element.addEventListener('submit', this.handleSubmit)
         this.reviews = reviews.map(r =>{
-
+            
             const rObj = new Review(r)
             return rObj
         })
@@ -39,17 +39,13 @@ class Smoothie{
         <br>
         `
         return this.element
-        // this.reviews  iterate rObj.loadOn dom, for each()
-        // return this.element
     }
 
     loadOnDom(){
         Smoothie.smoothieContainer.appendChild(this.smoothieHTML())
         this.reviews.forEach(r => {
             r.loadOnDom()
-
         })
-
     }
     handleSubmit = () => {
         event.preventDefault()
