@@ -10,14 +10,46 @@
 <div class="container">
     <h1>Welcome To My Smoothies Bar </h1>
     <h2>Leave A Review</h2>
-
 </div>
+<button>change me</button>
+
 
 <div id="smoothies-container">
 
-
 </div>
+<script>
 
+// var button = document.querySelector("button");
+// var isColored = false;
+
+// button.addEventListener("click", function(){
+// if(isColored){
+// document.body.style.background = "white";
+// isColored = false;
+// } else{
+// document.body.style.background = "grey";
+// isColored = true;
+// }
+// });       
+
+let button = document.querySelector("button");
+let changeColored = false;
+
+button.addEventListener("click", function(){
+if(changeColored){
+document.body.style.background = "white";
+changeColored = false;
+} else{
+document.body.style.background = "grey";
+changeColored = true;
+}
+});       
+
+
+</script>
+
+
+    </script> -->
     <script src="src/smoothie.js"></script>
     <script src="src/review.js"></script>
     <script src="src/smoothieService.js"></script>
